@@ -13,6 +13,10 @@ import androidx.recyclerview.widget.RecyclerView;
 public class NoteAdapter extends ListAdapter<Note, NoteAdapter.NoteHolder> {
     private OnItemClickListener listener;
 
+    public NoteAdapter() {
+        super(DIFF_CALLBACK);
+    }
+
     private static final DiffUtil.ItemCallback<Note> DIFF_CALLBACK =
             new DiffUtil.ItemCallback<Note>() {
                 @Override
@@ -27,10 +31,6 @@ public class NoteAdapter extends ListAdapter<Note, NoteAdapter.NoteHolder> {
                             && oldItem.getPriority() == newItem.getPriority();
                 }
             };
-
-    public NoteAdapter() {
-        super(DIFF_CALLBACK);
-    }
 
     @NonNull
     @Override

@@ -13,6 +13,9 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 public abstract class NoteDatabase extends RoomDatabase {
 
     public static NoteDatabase instance;
+
+    public abstract NoteDao noteDao();
+
     private static RoomDatabase.Callback roomCallback = new RoomDatabase.Callback() {
         @Override
         public void onCreate(@NonNull SupportSQLiteDatabase db) {
@@ -34,7 +37,6 @@ public abstract class NoteDatabase extends RoomDatabase {
         return instance;
     }
 
-    public abstract NoteDao noteDao();
 
     private static class PopulateDbAsyncTask extends AsyncTask<Void, Void, Void> {
 

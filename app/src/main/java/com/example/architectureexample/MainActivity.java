@@ -115,6 +115,7 @@ public class MainActivity extends AppCompatActivity {
             Note note = new Note(title, description, priority);
             note.setId(id);
             noteViewModel.update(note);
+
             Toast.makeText(this, "Note updated", Toast.LENGTH_SHORT).show();
 
         } else {
